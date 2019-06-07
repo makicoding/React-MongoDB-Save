@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../components/Grid";
-// import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import Nav from "../components/Nav";
 
 class Detail extends Component {
   state = {
@@ -18,34 +16,52 @@ class Detail extends Component {
 
   render() {
     return (
-      <div className="container" fluid>
-        <div className="row">
-          <div className="col-md-12">
-            <div>
-              <h1>
-                {this.state.book.title} by {this.state.book.author}
-              </h1>
+
+      <div>
+
+        {/* Navbar imported from components folder */}
+        <Nav />
+
+        <div className="container" fluid>
+          
+          <div className="row">
+            <div className="col-md-12">
+
+              <div className="jumbotron">
+                <h1>
+                  {this.state.book.title} by {this.state.book.author}
+                </h1>
+              </div>
+
             </div>
           </div>
-        </div>
-        <div>
-          <div className="col-md-10 col-md-offset-1">
-            <article>
-              <h1>Synopsis</h1>
-              <p>
-                {this.state.book.synopsis}
-              </p>
-            </article>
+
+          <div className="row">
+            <div className="col-md-10 col-md-offset-1">
+
+              <article>
+                <h1>Synopsis</h1>
+                <p>
+                  {this.state.book.synopsis}
+                </p>
+              </article>
+            
+            </div>
           </div>
-        </div>
-        <div>
-          <div size="col-md-2">
-            <Link to="/">← Back to Authors</Link>
+
+          <div className="row">
+            <div size="col-md-2">
+              <a href="/">← Back to Authors</a>
+            </div>
           </div>
+
         </div>
+
       </div>
+
     );
   }
+
 }
 
 export default Detail;

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import "./style.css";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import Nav from "../components/Nav";
 
 class Books extends Component {
+
   state = {
     books: [],
     title: "",
@@ -53,63 +52,86 @@ class Books extends Component {
 
   render() {
     return (
-      <div className="container">
+      
+      <div>
 
-        <div className="row">
-          <div className="col-md-6">
-            
-            <div className="jumbotron">
-              <h1>What Books Should I Read?</h1>
-            </div>
-            
-            <form>
-              <div className="form-group">
-                <input className="form-control" value={this.state.title} onChange={this.handleInputChange} name="title" placeholder="Title (required)">
-                </input>
+        {/* Navbar imported from components folder */}
+        <Nav />
+
+        <div className="container">
+
+          <div className="row">
+            <div className="col-md-6">
+              
+              <div className="jumbotron">
+                <h1>What Books Should I Read?</h1>
               </div>
+              
+              <form>
+                <div className="form-group">
+                  <input className="form-control" value={this.state.title} onChange={this.handleInputChange} name="title" placeholder="Title (required)">
+                  </input>
+                </div>
 
                 <div className="form-group">
-                  <textarea className="form-control" rows="10" value={this.state.author} onChange={this.handleInputChange} name="author" placeholder="Author (optional)">
+                  <input className="form-control" value={this.state.author} onChange={this.handleInputChange} name="author" placeholder="Author (required)">
+                  </input>
+                </div>
+
+                <div className="form-group">
+                  <textarea className="form-control" rows="10" value={this.state.synopsis} onChange={this.handleInputChange} name="synopsis" placeholder="Synopsis (optional)">
                   </textarea>
                 </div>
 
-              { /* Example of authentication with multiple mandatory required input fields */
-                /* <button disabled={!(this.state.title && this.state.synopsis)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
-              </button> */
-              }
+                { /* User input authentication with multiple mandatory required input fields */ }
+                <button disabled={!(this.state.title && this.state.author)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
+                </button>
 
-              <button disabled={!(this.state.title)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
-              </button>
+              </form>
 
-            </form>
-          </div>
-          <div className="col-md-6">
-            <div className="jumbotron">
-              <h1>Books On My List</h1>
             </div>
-            {this.state.books.length ? (
-              <List>
-              {this.state.books.map(book => (
-                <ListItem key={book._id}>
-                
-                  <Link to={"/books/" + book._id}>
-                    <strong>
-                      {book.title} by {book.author}
-                    </strong>
-                  </Link>
-                  <span className="delete-btn" onClick={() => this.deleteBook(book._id)} role="button" tabIndex="0">✗</span>
 
-                </ListItem>
-              ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+
+
+            <div className="col-md-6">
+
+              <div className="jumbotron">
+                <h1>Books On My List</h1>
+              </div>
+              
+              {/* Ternary operator (if/else statement short hand version) */}
+              {this.state.books.length ? (
+                <div className="list-overflow-container">
+                  <ul className="list-group">
+                    {this.state.books.map(book => (
+                      <li className="list-group-item" key={book._id}>
+                      
+                        <a href={"/books/" + book._id}>
+                          <strong>
+                            {book.title} by {book.author}
+                          </strong>
+                        </a>
+
+                        <span className="delete-btn" onClick={() => this.deleteBook(book._id)} role="button" tabIndex="0">✗</span>
+
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+
+            </div>
+
           </div>
+
         </div>
+
       </div>
     );
   }
+
 }
 
 export default Books;
