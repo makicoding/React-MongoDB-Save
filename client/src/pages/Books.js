@@ -9,7 +9,6 @@ class Books extends Component {
   state = {
     books: [],
     title: "",
-    author: "",
     synopsis: ""
   };
 
@@ -20,7 +19,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ books: res.data, title: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
@@ -75,17 +74,13 @@ class Books extends Component {
                 </div>
 
                 <div className="form-group">
-                  <input className="form-control" value={this.state.author} onChange={this.handleInputChange} name="author" placeholder="Author (required)">
-                  </input>
-                </div>
-
-                <div className="form-group">
                   <textarea className="form-control" rows="10" value={this.state.synopsis} onChange={this.handleInputChange} name="synopsis" placeholder="Synopsis (optional)">
                   </textarea>
                 </div>
 
                 { /* User input authentication with multiple mandatory required input fields */ }
-                <button disabled={!(this.state.title && this.state.author)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
+                {/* <button disabled={!(this.state.title && this.state.author)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book */}
+                <button disabled={!(this.state.title)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
                 </button>
 
               </form>
@@ -109,7 +104,7 @@ class Books extends Component {
                       
                         <a href={"/books/" + book._id}>
                           <strong>
-                            {book.title} by {book.author}
+                            {book.title} 
                           </strong>
                         </a>
 

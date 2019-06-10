@@ -29,7 +29,7 @@ class Detail extends Component {
 
               <div className="jumbotron">
                 <h1>
-                  {this.state.book.title} by {this.state.book.author}
+                  {this.state.book.title} 
                 </h1>
               </div>
 
