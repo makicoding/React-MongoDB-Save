@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import API from "../utils/API";
 import Nav from "../components/Nav";
+import { Container, Row, Col } from "../components/Grid";
 
 class Books extends Component {
 
@@ -58,10 +59,10 @@ class Books extends Component {
         {/* Navbar imported from components folder */}
         <Nav />
 
-        <div className="container">
+        <Container>
 
-          <div className="row">
-            <div className="col-md-6">
+          <Row>
+            <Col size="md-6">
               
               <div className="jumbotron">
                 <h1>What Books Should I Read?</h1>
@@ -89,11 +90,11 @@ class Books extends Component {
 
               </form>
 
-            </div>
+            </Col>
 
 
 
-            <div className="col-md-6">
+            <Col size="md-6">
 
               <div className="jumbotron">
                 <h1>Books On My List</h1>
@@ -122,11 +123,11 @@ class Books extends Component {
                 <h3>No Results to Display</h3>
               )}
 
-            </div>
+            </Col>
 
-          </div>
+          </Row>
 
-        </div>
+        </Container>
 
       </div>
     );
