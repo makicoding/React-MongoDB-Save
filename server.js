@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reacttravelertest");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactmongodbtravelplanner");
 
 // Start the API server
 app.listen(PORT, function() {
@@ -101,6 +101,9 @@ package.json file long hand into the command line:
 // node scripts/seedDB.js
 
 The populated database will now show up in Robo 3T.
+
+If you want to add additional fields to the database, you must add the additional fields into seedDB.js,
+and then re-run 'npm run seed' (Note that this will wipe out any existing data in the database).
 
 
 

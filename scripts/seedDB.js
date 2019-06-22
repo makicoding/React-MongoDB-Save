@@ -5,26 +5,29 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reacttravelertest"
+  "mongodb://localhost/reactmongodbtravelplanner"
 );
 
 const bookSeed = [
   {
-    title: "Place to visit 1",
+    title: "Title 1",
+    author: "Author 1",
     synopsis:
-      "Additional notes 1",
+      "Synopsis 1",
     date: new Date(Date.now())
   },
   {
-    title: "Place to visit 2",
+    title: "Title 2",
+    author: "Author 2",
     synopsis:
-      "Additional notes 2",
+      "Synopsis 2",
     date: new Date(Date.now())
   },
   {
-    title: "Place to visit 3",
+    title: "Title 3",
+    author: "Author 3",
     synopsis:
-      "Additional notes 3",
+      "Synopsis 3",
     date: new Date(Date.now())
   }
 ];
