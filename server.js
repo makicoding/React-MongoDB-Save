@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactmongodbsearch");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactmongodbsave");
 
 // Start the API server
 app.listen(PORT, function() {
@@ -83,23 +83,12 @@ MongoDB must be running first before running the React Full Stack App.
 
 
 --------------------
-Initialize Mongo DB with the seeds file:
+Create a Mongo DB database in Robo 3T (when running app locally):
 
-Then in a separate command line window, go to the project folder directory and type in 
-the following to initially populate the database with the seeds file:
-// npm run seed
+Create an empty database called 'reactmongodbsave' in Robo 3T.
 
-What “npm run seed” is doing is the app looks into the package.json file and looks at 
-the “scripts” section and runs the “seed” line.
-
-The alternative to “npm run seed” is to type out the seed line command in the 
-package.json file long hand into the command line: 
-// node scripts/seedDB.js
-
-The populated database will now show up in Robo 3T.
-
-If you want to add additional fields to the database, you must add the additional fields into seedDB.js,
-and then re-run 'npm run seed' (Note that this will wipe out any existing data in the database).
+The Schemas inside the models folder will be run automatically by Mongoose when running the app ('npm start')
+so no extra local configuration in Robo 3T necessary besides creating the empty database with the name 'reactmongodbsave'.
 
 
 

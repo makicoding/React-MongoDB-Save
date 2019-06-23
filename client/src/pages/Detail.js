@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Nav from "../components/Nav";
+import { Container, Row, Col } from "../components/Grid";
 
 class Detail extends Component {
   state = {
@@ -22,10 +23,10 @@ class Detail extends Component {
         {/* Navbar imported from components folder */}
         <Nav />
 
-        <div className="container" fluid>
+        <Container>
           
-          <div className="row">
-            <div className="col-md-12">
+          <Row>
+            <Col size="col-md-12">
 
               <div className="jumbotron">
                 <h1>
@@ -33,11 +34,11 @@ class Detail extends Component {
                 </h1>
               </div>
 
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="row">
-            <div className="col-md-10 col-md-offset-1">
+          <Row>
+            <Col size="col-md-10 col-md-offset-1">
 
               <article>
                 <h1>Synopsis</h1>
@@ -46,16 +47,16 @@ class Detail extends Component {
                 </p>
               </article>
             
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="row">
-            <div size="col-md-2">
+          <Row>
+            <Col size="col-md-2">
               <a href="/">← Back to Authors</a>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-        </div>
+        </Container>
 
       </div>
 

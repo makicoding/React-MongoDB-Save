@@ -3,7 +3,6 @@ import "./style.css";
 import API from "../utils/API";
 import Nav from "../components/Nav";
 import { Container, Row, Col } from "../components/Grid";
-import OmdbContainer from "../components/Omdb/OmdbContainer"
 
 class Books extends Component {
 
@@ -21,7 +20,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", synopsis: "" })
+        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
       )
       .catch(err => console.log(err));
   };
@@ -68,8 +67,6 @@ class Books extends Component {
               <div className="jumbotron">
                 <h1>What Books Should I Read?</h1>
               </div>
-              
-              <OmdbContainer />
 
               <form>
                 <div className="form-group">
@@ -88,7 +85,6 @@ class Books extends Component {
                 </div>
 
                 { /* User input authentication with multiple mandatory required input fields */ }
-                {/* <button disabled={!(this.state.title && this.state.author)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book */}
                 <button disabled={!(this.state.title && this.state.author)} onClick={this.handleFormSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">Submit Book
                 </button>
 
