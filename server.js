@@ -2,20 +2,16 @@
 // BOILERPLATE CODE FOR SERVER
 // (Boilerplate code is a section of code that has to be included in with little or no alteration)
 
-// ================================================================================
+
 // DEPENDENCIES
 // Series of npm packages that we will use to give our server useful functionality
-// ================================================================================
-
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
-// ================================================================================
+
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
-// ================================================================================
-
 // Tells node that we are creating an "express" server
 const app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -36,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactmongodbtravelplanner");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactmongodbsearch");
 
 // Start the API server
 app.listen(PORT, function() {

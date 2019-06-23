@@ -60,12 +60,12 @@ class OmdbContainer extends Component {
                 <MovieDetail
                   title={this.state.result.Title}
                   src={this.state.result.Poster}
-                  genre={this.state.result.Genre}
-                  released={this.state.result.Released}
-                  director={this.state.result.Director}
-                  actors={this.state.result.Actors}
-                  imdbrating={this.state.result.Ratings[0].Value}
-                  rottentomatoesrating={this.state.result.Ratings[1].Value}
+                  // genre={this.state.result.Genre}
+                  // released={this.state.result.Released}
+                  // director={this.state.result.Director}
+                  // actors={this.state.result.Actors}
+                  // imdbrating={this.state.result.Ratings[0].Value}
+                  // rottentomatoesrating={this.state.result.Ratings[1].Value}
                   plot={this.state.result.Plot}
                 />
               ) : (

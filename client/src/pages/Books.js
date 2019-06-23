@@ -3,6 +3,7 @@ import "./style.css";
 import API from "../utils/API";
 import Nav from "../components/Nav";
 import { Container, Row, Col } from "../components/Grid";
+import OmdbContainer from "../components/Omdb/OmdbContainer"
 
 class Books extends Component {
 
@@ -68,6 +69,8 @@ class Books extends Component {
                 <h1>What Books Should I Read?</h1>
               </div>
               
+              <OmdbContainer />
+
               <form>
                 <div className="form-group">
                   <input className="form-control" value={this.state.title} onChange={this.handleInputChange} name="title" placeholder="Title (required)">
