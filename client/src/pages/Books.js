@@ -62,7 +62,7 @@ class Books extends Component {
         <Container>
 
           <Row>
-            <Col size="md-6">
+            <Col size="col-md-6">
               
               <div className="jumbotron">
                 <h1>What Books Should I Read?</h1>
@@ -95,7 +95,7 @@ class Books extends Component {
 
 
 
-            <Col size="md-6">
+            <Col size="col-md-6">
 
               <div className="jumbotron">
                 <h1>Books On My List</h1>
